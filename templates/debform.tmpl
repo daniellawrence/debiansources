@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container"> 
+      <form role="form" method="post">
+	<!-- 1  -->
+	<div class="form-group">
+	  <label for="exampleInputLocation1">Mirror Locatoin</label>
+	  <input name="location" type="location" class="form-control" id="location" placeholder="Enter Your location">
+	</div>
+	<!-- x -->
+	<div class="form-group">
+	  <label for="exampleInputLocation1">Select your Release</label>
+	  {{range .Releases}}
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox" name="release" id="release" value="{{.Name}}" {{if .Checked}}checked{{end}} >
+	      {{.Name}}
+	    </label>
+	  </div>
+	  {{end}}
+	</div>
+	<!-- x -->
+	<div class="form-group">
+	  <label for="exampleInputLocation1">Select your source</label>
+	  {{range .Sources}}
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox" name="source" value="{{.Name}}" {{if .Checked}}checked{{end}}> {{.Name}}
+	    </label>
+	  </div>
+	 {{end}}
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox" name="updates" value="updates" checked> updates
+	    </label>
+	  </div>
+	</div>
+	<!-- x -->
+	<div class="form-group">
+	  <label for="exampleInputLocation1">Include source packages?</label>
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox" name="source_pkgs" value="source_pkgs" checked> Yes
+	    </label>
+	  </div>
+	</div>
+	<!-- 4 -->
+	<button type="submit" class="btn btn-default">Preview & Download</button>
+      </form>
+    </div>
+  </body>
+</html>
